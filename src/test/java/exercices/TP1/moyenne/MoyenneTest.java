@@ -1,4 +1,4 @@
-package exercices;
+package exercices.TP1.moyenne;
 
 import exercices.TP1.moyenne.Moyenne;
 import org.junit.jupiter.api.BeforeEach;
