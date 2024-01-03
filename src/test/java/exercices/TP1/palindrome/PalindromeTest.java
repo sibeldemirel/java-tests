@@ -16,20 +16,23 @@ class PalindromeTest {
     }
 /*    @ParameterizedTest
     @CsvSource({"101"})*/
-    @Test
-    public void testEstUnPalindrome(){
-        boolean resultat = palindrome.estUnPalindrome(11);
+    @ParameterizedTest
+    @CsvSource({"11"})
+    public void testEstUnPalindrome(int nb){
+        boolean resultat = palindrome.estUnPalindrome(nb);
         assertTrue(resultat);
     }
 
-    @Test
-    public void testRenverserNombre(){
-        boolean resultat = palindrome.estUnPalindrome(132);
+    @ParameterizedTest
+    @CsvSource({"132"})
+    public void testRenverserNombre(int nb){
+        boolean resultat = palindrome.estUnPalindrome(nb);
         assertFalse(resultat);
     }
 
-    @Test
-    public void testVerifierNombre(){
-        assertThrows(IllegalArgumentException.class, () -> palindrome.estUnPalindrome(5));
+    @ParameterizedTest
+    @CsvSource({"5"})
+    public void testVerifierNombre(int nb){
+        assertThrows(IllegalArgumentException.class, () -> palindrome.estUnPalindrome(nb));
     }
 }
