@@ -22,9 +22,14 @@ class PalindromeTest {
         assertTrue(resultat);
     }
 
-/*    @Test
+    @Test
     public void testRenverserNombre(){
-        int resultat = palindrome.renverserNombre(11);
-        assertEquals(11, resultat);
-    }*/
+        boolean resultat = palindrome.estUnPalindrome(132);
+        assertFalse(resultat);
+    }
+
+    @Test
+    public void testVerifierNombre(){
+        assertThrows(IllegalArgumentException.class, () -> palindrome.estUnPalindrome(5));
+    }
 }
