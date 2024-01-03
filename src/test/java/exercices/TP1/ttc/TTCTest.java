@@ -2,6 +2,8 @@ package exercices.TP1.ttc;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,23 +13,19 @@ class TTCTest {
     public void mesPrix(){
         prixTTC = new TTC();
     }
-    @Test
-    public void testHtToTtc(){
-        int prixHt = -5;
-        assertThrows(IllegalArgumentException.class, () -> prixTTC.HtToTtc(prixHt));
+    @ParameterizedTest
+    @CsvSource({"-5"})
+    public void testHtToTtc(int price){
+        assertThrows(IllegalArgumentException.class, () -> prixTTC.HtToTtc(price));
     }
 
-    @Test
-    public void testAjouterTva() {
-        assertEquals(24.0, prixTTC.ajouterTva(20));
-        assertEquals(0.0, prixTTC.ajouterTva(0));
-        assertEquals(120.0, prixTTC.ajouterTva(100));
-    }
-
-    @Test
-    public void testVerifierPrix() {
-        assertDoesNotThrow(() -> prixTTC.verifierPrix(20));
-        assertThrows(IllegalArgumentException.class, () -> prixTTC.verifierPrix(-10));
-        assertDoesNotThrow(() -> prixTTC.verifierPrix(0));
+    @ParameterizedTest
+    @CsvSource({
+            "20 , 24.0",
+            "0  , 0.0",
+            "100, 120"
+    })
+    public void testAjouterTva(int price, float expected) {
+        assertEquals(expected, prixTTC.HtToTtc(price));
     }
 }
