@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class MoyenneTest {
     private Moyenne resultatCalcul;
@@ -13,21 +15,24 @@ class MoyenneTest {
         resultatCalcul = new Moyenne();
     }
 
-    @Test
-    public void testMoyenne() {
-        int[] notes = new int[]{12, 6, 15};
+    @ParameterizedTest
+    @CsvSource({"12,6,15,11", "17,18,19,18", "10,9,8,9"})
+    public void testMoyenne(int note1, int note2, int note3, int expected) {
+        int[] notes = new int[]{note1, note2, note3};
         Integer result = resultatCalcul.moyenne(notes);
-        assertEquals(11, result, "il y a une erreur de calcul");
+        assertEquals(expected, result, "Il y a une erreur de calcul");
     }
-    @Test
-    public void testNoteInccorecte(){
-        int[] notes = new int[]{32, 6, 24};
+    @ParameterizedTest
+    @CsvSource({"32,6,24", "20,25,30", "15,35,40"})
+    public void testNoteInccorecte(int note1, int note2, int note3){
+        int[] notes = new int[]{note1, note2, note3};
         assertThrows(IllegalArgumentException.class, () -> resultatCalcul.moyenne(notes));
     }
 
-    @Test
-    public void testNoteNb() {
-        int[] notes = new int[]{11, 6};
+    @ParameterizedTest
+    @CsvSource({"11,6", "8,15", "20,21"})
+    public void testNoteNb(int note1, int note2, int note3) {
+        int[] notes = new int[]{note1, note2, note3};
         assertThrows(IllegalArgumentException.class, () -> resultatCalcul.moyenne(notes));
     }
 }

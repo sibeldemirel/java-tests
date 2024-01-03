@@ -24,7 +24,7 @@ public class TTC {
      * @param prixHt Nombre à multiplier par la TVA
      * @return Nombre multiplié par la TVA
      */
-    private double ajouterTva(int prixHt) {
+    double ajouterTva(int prixHt) {
         return prixHt * this.TVA;
     }
 
@@ -32,7 +32,7 @@ public class TTC {
      * Vérifie que le prix HT est positif
      * @param prixHt Prix HT
      */
-    private void verifierPrix(int prixHt) {
+    void verifierPrix(int prixHt) {
         if (prixHt < 0) {
             throw new IllegalArgumentException("Le prix HT doit être positif");
         }
