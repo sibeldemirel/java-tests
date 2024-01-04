@@ -15,7 +15,13 @@ class RomanToNumberTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"205, CCV", "4, IV"})
+    //ci-dessous je crée 2 lots de valeurs que je vais tester
+    @CsvSource(
+            {
+                    "205, CCV",
+                    "4, IV"
+            })
+    //dans les params je leur donne un identifiant (chaque ligne = 1 nbArabe et 1 nbRomain)
     public void testConvertirNombreRomainEnNombreArabe(int nombreArabe, String nombreRomain){
         int result = romanNumber.convertirNombreRomainEnNombreArabe(nombreRomain);
         assertEquals(nombreArabe, result);

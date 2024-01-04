@@ -1,4 +1,4 @@
-package demo;
+package demo.helloworld;
 
 import demo.helloworld.HelloWorld;
 import org.junit.jupiter.api.Test;
