@@ -13,7 +13,7 @@ public class Salaire {
      */
     public int payer(int heures){
         int heuresNormales = (int) Math.min(heures, 151.67);
-        int heuresSupplementaires = (int) Math.max(heures - 151.67, 0);
+        int heuresSupplementaires = (int) Math.max(heures - heuresNormales, 0);
 
         // Calcul du salaire pour les heures normales
         int salaireNormal = heuresNormales * tauxHoraire;
