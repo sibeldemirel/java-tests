@@ -23,12 +23,12 @@ class ThermometreTest {
 
     //[1, 2, 3] retourne 1
     @Test
-    public void test_if_three_values_table(){
+    public void test_if_three_values_table() {
         int[] tab = new int[3];
-        tab[0]=1;
-        tab[1]=2;
-        tab[2]=3;
-        int expected = 1;
+        tab[0] = 4;
+        tab[1] = 2;
+        tab[2] = 3;
+        int expected = 2;
         assertEquals(expected, thermometre.give_most_close_to_zero(tab));
     }
 }
