@@ -15,8 +15,9 @@ class ThermometreTest {
 
     @Test
     public void test_if_empty_table(){
-        int[] tab = new int[4];
-        int[] expected = new int[0];
-        assertEquals(expected, tab);
+        int[] tab = new int[0];
+        int expected = 0;
+        thermometre.give_most_close_to_zero(tab);
+        assertEquals(expected, thermometre.give_most_close_to_zero(tab));
     }
 }
