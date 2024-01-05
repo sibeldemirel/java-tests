@@ -36,13 +36,14 @@ public abstract class Salarie {
      * @param heures (int)
      * @return
      */
+    //methode appelée si Corinne indique le nb d'heures travaillées
     public double travailler(double heures) {
         double salaireGagne = salaire.payer(heures);
 
         System.out.println("Le salarié Jean Dupont a travaillé " + heures + " heures et a perçu " + salaireGagne + " euros");
         return salaireGagne;
     }
-
+    //methode appelée si Corinne n'indique PAS le nb d'heures travaillées
     public double travailler() {
         double salaireGagne = salaire.payer(151);
 
