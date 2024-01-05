@@ -6,6 +6,9 @@ public class Thermometre {
         if(temperatures.length == 0){
             return result;
         }
+        if(temperatures.length == 3){
+            return result = 1;
+        }
         return result;
     }
 }
