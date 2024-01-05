@@ -35,27 +35,28 @@ class SalaireCdiTest {
 
     @Test
     public void testTravailler(){
-        when(salaireMock.payer(151.61)).thenReturn(151.67 * 10);
         salaireCdi.travailler(151.61);
         verify(salaireMock, times(1)).payer(151.61);
 
         reset(salaireMock);
 
-        when(salaireMock.payer(151.61)).thenReturn(0.0 * 10);
-        salaireCdi.travailler(151.61);
-        verify(salaireMock, times(1)).payer(151.61);
+        salaireCdi.travailler();
+        verify(salaireMock, times(1)).payer(151.0);
     }
 
     @Test
     public void testAugmenter() {
-        when(salaireMock.payer(151.61)).thenReturn(10.0);
+       /* when(salaireMock.payer(151.61)).thenReturn(10.0);
 
         double pourcentageAugmentation = 15;
         double tauxHoraireAttendu = 151.67 * 10 * (1 + (pourcentageAugmentation / 100.0));
 
         salaireCdiMock.augmenter(pourcentageAugmentation);
 
-        assertNotEquals(tauxHoraireAttendu, salaireCdiMock.getSalaire());
+        assertEquals(tauxHoraireAttendu, salaireCdiMock.getSalaire());*/
+        salaireMock.tauxHoraire = 10;
+        salaireCdi.augmenter(20);
+        assertEquals(12, salaireMock.tauxHoraire);
     }
 
 }

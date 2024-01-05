@@ -37,16 +37,23 @@ public abstract class Salarie {
      * @return
      */
     public double travailler(double heures) {
-        if (heures <= 0) {
-            heures = 151;
-        }
-
         double salaireGagne = salaire.payer(heures);
 
         System.out.println("Le salarié Jean Dupont a travaillé " + heures + " heures et a perçu " + salaireGagne + " euros");
         return salaireGagne;
     }
 
+    public double travailler() {
+        double salaireGagne = salaire.payer(151);
+
+        System.out.println("Le salarié Jean Dupont a travaillé 151 heures et a perçu " + salaireGagne + " euros");
+        return salaireGagne;
+    }
+
+    // TH : 10
+    // Augm : 20%
+    // Totoal = 2
+    // 10 + 2 = 12
     public void augmenter(double pourcentage){
         double salaireAugmente = salaire.tauxHoraire * pourcentage/100;
         salaire.tauxHoraire = salaire.tauxHoraire + salaireAugmente;
