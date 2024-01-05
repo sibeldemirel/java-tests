@@ -20,4 +20,13 @@ class ThermometreTest {
         thermometre.give_most_close_to_zero(tab);
         assertEquals(expected, thermometre.give_most_close_to_zero(tab));
     }
+
+    //[1, 2, 3] retourne 1
+    @Test
+    public void test_if_three_values_table(){
+        int[] tab = new int[3];
+        int expected = 1;
+        thermometre.give_most_close_to_zero(tab);
+        assertEquals(expected, thermometre.give_most_close_to_zero(tab));
+    }
 }
