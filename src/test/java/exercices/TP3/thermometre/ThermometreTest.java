@@ -31,4 +31,15 @@ class ThermometreTest {
         int expected = 2;
         assertEquals(expected, thermometre.give_most_close_to_zero(tab));
     }
+
+    @Test
+    public void test_if_four_positive_and_negative_values_table() {
+        int[] tab = new int[4];
+        tab[0] = 4;
+        tab[1] = -2;
+        tab[2] = 3;
+        tab[3] = -3;
+        int expected = -2;
+        assertEquals(expected, thermometre.give_most_close_to_zero(tab));
+    }
 }
